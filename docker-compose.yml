@@ -6,8 +6,10 @@ mysql:
   environment:
     MYSQL_DATABASE: westwing_test
     MYSQL_ROOT_PASSWORD: westwing_test
+  volumes:
+    - bdata:/var/lib/mysql
 php:
-  image: php:fpm-alpine
+  image: php:fpm
   container_name: php
   volumes:
     - .:/var/www/westwing_test
