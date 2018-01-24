@@ -12,7 +12,7 @@ php:
   image: php:fpm
   container_name: php
   volumes:
-    - .:/var/www/westwing_test
+    - .:/var/www/html/westwing_test
   entrypoint:
     - php-fpm
 
