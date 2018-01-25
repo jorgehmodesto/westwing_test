@@ -1,8 +1,8 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-## O projeto deve ser acessado através do [localhost:8080](http://localhost:8080)
+## O projeto deve ser acessado através da porta 8080 de seu localhost: [localhost:8080](http://localhost:8080)
 
-## O primeiro passo, é instalar todas as dependências do projeto, na pasta do mesmo, via composer, com o comando *composer install*
+## O primeiro passo, é instalar todas as dependências do Laravel, na raíz do projeto, via composer, com o comando *composer install*
 
 ## Após instaladas as dependências, seguimos os seguintes passos:
 
