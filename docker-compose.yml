@@ -8,13 +8,14 @@ mysql:
     MYSQL_ROOT_PASSWORD: westwing_test
   volumes:
     - bdata:/var/lib/mysql
+
 php:
-  image: php:fpm
+  image: mikechernev/php7-fpm-laravel
   container_name: php
   volumes:
     - .:/var/www/html/westwing_test
-  entrypoint:
-    - php-fpm
+  links:
+    - mysql
 
 nginx:
   image: nginx:alpine

@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::view('/', 'home')->middleware('auth');
+
+Route::view('/home', 'home')->middleware('auth');
+
+Route::view('/ticket/new', 'new_ticket')->name('new_ticket')->middleware('auth');
+
+Route::get('/ticket/report', 'TicketController@report')->name('ticket_report')->middleware('auth');

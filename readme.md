@@ -1,6 +1,10 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-## Passos para setup do projeto
+## O projeto deve ser acessado através do [localhost:8080](http://localhost:8080)
+
+## O primeiro passo, é instalar todas as dependências do projeto, na pasta do mesmo, via composer, com o comando *composer install*
+
+## Após instaladas as dependências, seguimos os seguintes passos:
 
 - Dentro do container do php, executar o seguinte comando: *php artisan key:generate* para criação da app key do Laravel
 - Dentro do container do php, executar o comando *php artisan migrate* para rodas as migrations do db
