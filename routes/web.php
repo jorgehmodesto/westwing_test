@@ -19,4 +19,6 @@ Route::view('/home', 'home')->middleware('auth');
 
 Route::view('/ticket/new', 'new_ticket')->name('new_ticket')->middleware('auth');
 
+Route::get('/ticket/record', 'TicketController@record')->name('new_ticket_record')->middleware('auth');
+
 Route::get('/ticket/report', 'TicketController@report')->name('ticket_report')->middleware('auth');

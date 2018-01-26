@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="submit_button">&nbsp;</label>
-                                    <button type="submit" id="submit_button" class="btn btn-primary form-control">Cadastrar</button>
+                                    <button type="submit" id="submit_button" class="btn btn-primary form-control">Filtrar</button>
                                 </div>
                             </div>
                         </form>
@@ -33,6 +33,7 @@
                     <tr>
                         <th>Data</th>
                         <th>N&uacute;mero do pedido</th>
+                        <th>Nome do cliente</th>
                         <th>Email do cliente</th>
                         <th>T&iacute;tulo do chamado</th>
                         <th>Observação</th>
@@ -41,10 +42,11 @@
                 <tbody>
                     @foreach($records as $record)
                         <tr>
-                            <td>{{ $record->ticket_date }}</td>
-                            <td>{{ $record->order_number }}</td>
-                            <td>{{ $record->client_name }}</td>
-                            <td>{{ $record->ticket_title }}</td>
+                            <td>{{ $record->created_at }}</td>
+                            <td>{{ $record->number }}</td>
+                            <td>{{ $record->name }}</td>
+                            <td>{{ $record->email }}</td>
+                            <td>{{ $record->title }}</td>
                             <td>{{ $record->obs }}</td>
                         </tr>
                     @endforeach

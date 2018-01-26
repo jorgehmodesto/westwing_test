@@ -4,11 +4,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+
+                <div class="alert alert-danger hide" id="dangerMessage"></div>
+                <div class="alert alert-success hide" id="successMessage"></div>
+
                 <div class="panel panel-default">
+
+                    <div class="loading-container hide"></div>
+                    <div class="loading-image hide"></div>
+
                     <div class="panel-heading"><b>Cadastro de chamado</b></div>
 
                     <div class="panel-body">
-                        <form id="frmNewTicket" name="frmNewTicket" method="post" action="javascript:newTicket()">
+                        <form id="frmNewTicket" name="frmNewTicket" method="get" action="javascript:newTicket()">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <div class="col-lg-3">
                                     <label for="customer_name">Nome do cliente</label>
@@ -16,7 +25,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="customer_email">Email do cliente</label>
-                                    <input type="email" class="form-control" id="customer_email" name="customer_email" aria-describedby="emailHelp" placeholder="Digite aqui o email do cliente">
+                                    <input type="text" class="form-control" id="customer_email" name="customer_email" placeholder="Digite aqui o email do cliente">
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="order_number">N&uacute;mero do pedido</label>

@@ -13,15 +13,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
-
-    <style>
-        .app-footer {
-            position: absolute!important;
-            bottom: 2%;
-            width:100%;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <footer class="app-footer">
@@ -57,7 +48,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('register') }}">Cadastro</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

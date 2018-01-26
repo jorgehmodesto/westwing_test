@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 /**
@@ -26,7 +29,19 @@ class TicketController extends Controller
      */
     public function record(Request $request)
     {
+        $requestParams = [
+            'customer_name' => $request->input('customer_name'),
+            'customer_email' => $request->input('customer_email'),
+            'order_number' => $request->input('order_number'),
+            'ticket_title' => $request->input('ticket_title'),
+            'obs' => $request->input('obs'),
+        ];
 
+        $ticket = new Ticket();
+        $response = $ticket->new($requestParams);
+
+        return response()
+            ->json($response);
     }
 
     /**
@@ -36,11 +51,16 @@ class TicketController extends Controller
      */
     public function report(Request $request)
     {
-        $records = [];
         $requestParams = [
             'email' => $request->input('email'),
             'orderNumber' => $request->input('order_number'),
         ];
+
+        $records = DB::table('tickets')
+            ->select('clients.name', 'clients.email', 'orders.number', 'tickets.title', 'tickets.obs', 'tickets.created_at')
+            ->join('orders', 'orders.id', '=', 'tickets.order_id')
+            ->join('clients', 'clients.id', '=', 'orders.client_id')
+            ->get();
 
         return view('ticket_report', [
             'records' => $records,
