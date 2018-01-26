@@ -58,8 +58,20 @@ class TicketController extends Controller
 
         $records = DB::table('tickets')
             ->select('clients.name', 'clients.email', 'orders.number', 'tickets.title', 'tickets.obs', 'tickets.created_at')
-            ->join('orders', 'orders.id', '=', 'tickets.order_id')
-            ->join('clients', 'clients.id', '=', 'orders.client_id')
+            ->join('orders', function($orderJoin) use ($requestParams) {
+                $orderJoin->on('orders.id', '=', 'tickets.order_id');
+
+                if(!empty($requestParams['orderNumber'])) {
+                    $orderJoin->where('orders.number', '=', $requestParams['orderNumber']);
+                }
+            })
+            ->join('clients', function($clientJoin) use ($requestParams) {
+                $clientJoin->on('clients.id', '=', 'orders.client_id');
+
+                if(!empty($requestParams['email'])) {
+                    $clientJoin->where('clients.email', '=', $requestParams['email']);
+                }
+            })
             ->get();
 
         return view('ticket_report', [

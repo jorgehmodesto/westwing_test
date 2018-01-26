@@ -22,4 +22,9 @@ class Order extends Model
      * @var bool
      */
     public $timestamps = true;
+
+    public function clients()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }
